@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CaffeeCoin About</title>
+        <meta charset="utf-8">
+        <!-- Styles -->
+        <link rel="stylesheet" href="styles.css">
+        <!-- Favicon -->
+        <link rel="icon" href="caffee.png" />
+    </head>
+
+     <!--
+
+        ░█████╗░░█████╗░███████╗███████╗███████╗███████╗
+        ██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝██╔════╝
+        ██║░░╚═╝███████║█████╗░░█████╗░░█████╗░░█████╗░░
+        ██║░░██╗██╔══██║██╔══╝░░██╔══╝░░██╔══╝░░██╔══╝░░
+        ╚█████╔╝██║░░██║██║░░░░░██║░░░░░███████╗███████╗
+        ░╚════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝░░░░░╚══════╝╚══════╝
+
+        Woah so thats a nice website
+        created by N.L.C
+    -->
+
+    <body>
+        <!--NavBar-->
+        <header>
+            <img class="nav__logo" src="caffee.png" width="5%" height="5%" alt="caffee">
+            <nav>
+                <ul class="nav__links">
+                    <li><a style="color: white;" href="index.html">Home</a></li>
+                    <li><a style="color: white;" href="wallet.html">Wallets</a></li>
+                    <li><a style="color: white;" href="upcoming.html">Upcoming</a></li>
+                    <li><a style="color: white;" href="about.html">About</a></li>
+                    <li><a style="color: white;" href="contribute.html">Contribute</a></li>
+                </ul>
+            </nav>
+            <a class="cta" href="buycaffeecoin.html"><button style="color: black;">Buy CaffeeCoin</button></a>
+        </header>
+        <!--Background-->
+        <body style="background-color: black;"></body>
+        <!--Main-->
+        <h1>Host A CaffeeCoin node!</h1>
+        <hr>
+        <br>
+        <h2 style="color:white; font-weight: 40; text-align: center;">Step 1. In Order to host a CaffeeCoin node you need at a good internet connection and <br> 2Gb of ram and at least 200GB of hard disk space and a linux 18.04 server</h2>
+        <br>
+        <hr>
+        <br>
+        <h2 style="color:white; font-weight: 40; text-align: center;">Step 2. Download the Code of CaffeeCoin or clone it from github.</h2>
+        <br>
+        <a href="https://github.com/NLC1609/caffeecoin-sourcecode"><h3 style="text-align: center; color: lightblue;">Click For The CaffeeCoin Code</h3></a>
+        <br>
+        <hr>
+        <br>
+        <h2 style="color:white; font-weight: 40; text-align: center;">Step 3. Paste it into your home folder in your linux server</h2>
+        <br>
+        <hr>
+        <br>
+        <h2 style="color:white; font-weight: 40; text-align: center;">Step 4. Copy and paste the commands below into your terminal<br><br><hr></h2>
+        <h2 style="color: blueviolet; font-weight: 40; text-align: center;">    
+        <br>
+            sudo apt-get update
+            <br> 
+            <br>
+            sudo apt-get install build-essential
+            <br>
+            <br>
+            sudo apt-get install autoconf libtool pkg-config libboost-all-dev libssl-dev libprotobuf-dev protobuf-compiler libevent-dev libqt4-dev libcanberra-gtk-module libdb++-dev
+            <br>
+            <br>
+            cd ~
+            <br>
+            <br>
+            </h2>
+            <hr>
+            <br>
+            <h2 style="text-align: center; color: white;">Step 5: Install BerkeleyDB using the commands below <br></h2>
+            <br>
+            <hr>
+            <br>
+            <br>
+            <h2 style="color: blueviolet; font-weight: 40; text-align: center;">
+            wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
+            <br>
+            <br>
+            tar -xvf db-4.8.30.NC.tar.gz
+            <br>
+            <br>
+            cd db-4.8.30.NC/build_unix
+            <br>
+            <br>
+            mkdir -p build<br><br>
+            BDB_PREFIX=$(pwd)/build
+            <br>
+            <br>
+            ../dist/configure --disable-shared --enable-cxx --with-pic --prefix=$BDB_PREFIX
+            <br>
+            <br>
+            sudo make install
+            <br>
+            <br>
+        </h2>
+        <hr>
+        <br>
+        <h2 style="text-align: center; color: white;">Step 6: Build and compile the Coin<br></h2>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <h2 style="color: blueviolet; font-weight: 40; text-align: center;">
+            cd /home/caffeecoincrypto/
+            <br>
+            <br>
+            chmod -R 775 /home/caffeecoincrypto
+            <br>
+            <br>
+            ./autogen.sh
+            <br>
+            <br>
+            ./configure CPPFLAGS="-I${BDB_PREFIX}/include/ -O2" LDFLAGS="-L${BDB_PREFIX}/lib/"
+            <br>
+            <br>
+            make
+        </h2>
+        <hr>
+        <br>
+        <h2 style="text-align: center; color: white;">Step 7: Finishing Up<br></h2>
+        <br>
+        <hr>
+        <br>
+        <br>
+        <h2 style="color: blueviolet; font-weight: 40; text-align: center;">
+            cd ~
+            <br>
+            <br>
+            cd /home/caffeecoincrypto/src
+            <br>
+            <br>
+            ./caffeecoind (If there is no error, everything is successful!)
+            <br>
+            <br>
+            ctrl+z
+            <br>
+            <br>
+            cd ~
+            <br>
+            <br>
+            cd .caffeecoin (If you don't have this folder just do mkdir .caffeecoin then cd into it)
+            <br>
+            <br>
+            vim caffeecoin.conf
+            <br>
+            <br>
+            press "i" 
+            type in this
+            <br>
+            rpcuser=coinuser
+            rpcpassword=coinpassword
+            rpcallowip=127.0.0.1
+            daemon=1
+            <br>
+            press esc
+            type ":wq"
+            <br>
+            <br>
+            cd ~
+            <br>
+            <br>
+            reboot your server
+            <br>
+            <br>
+            sudo su
+            <br>
+            <br>
+            cd /home/caffeecoincrypto/src
+            <br>
+            <br>
+            ./caffeecoind
+            <br>
+            if you get this message ("Caffeecoin server is starting ") then it works!
+            <br> 
+            <br>
+
+        </h2>
+    </body>
+</html>
